@@ -152,7 +152,7 @@ function Sighting() {
                         disabled
                         placeholder="Please enter your Location"
                         value={position}
-                        onChange={(e) => setPosition(e.target.value)}
+                    // onChange={(e) => setPosition(e.target.value)}
                     />
                     <TextField
                         label="Event Information"

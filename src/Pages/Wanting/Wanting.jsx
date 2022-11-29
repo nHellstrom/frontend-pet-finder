@@ -37,10 +37,10 @@ function Wanting() {
       .post("https://petfinderapi.azurewebsites.net/api/Wanting", formData)
       .then((response) => {
         //navigate("/");
-        console.log(response);
+        console.log("🍏Response: ", response);
       })
       .catch((error) => {
-        console.log(error.response);
+        console.log("🍎Error response: ", error.response);
       });
   }
   const saveFile = (e) => {

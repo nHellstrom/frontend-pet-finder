@@ -13,6 +13,7 @@ import Wanting from './Pages/Wanting/Wanting';
 import Footer from './Components/Footer/Footer';
 import { useAuth0 } from "@auth0/auth0-react";
 import ProtectedRoute from './protected-routes';
+import AboutPage from './Pages/About/AboutPage';
 
 function App() {
   //const { user, isAuthenticated, isLoading } = useAuth0();
@@ -37,25 +38,26 @@ function App() {
   });
 
 
-  return ( 
+  return (
     <ThemeProvider theme={kattTheme}>
 
       <Container maxWidth="lg">
         <Navbar />
-        
+
         <main id="ContentArea">
-      
+
           <Routes>
             <Route path="" element={<Frontpage />} />
             <Route path="/" element={<Frontpage />} />
+            <Route path="/home" element={<Frontpage />} />
             <Route path="/map" element={<Map />} />
-            <Route element={<ProtectedRoute/>}>
+            <Route element={<ProtectedRoute />}>
               <Route path="/reportlostcat" element={<Wanting />} />
             </Route>
             <Route path="/reportfoundcat" element={<Sighter />} />
-            <Route path="/about" element={<Frontpage />} />
+            <Route path="/about" element={<AboutPage />} />
           </Routes>
-        
+
         </main>
 
         {/* <footer> */}
@@ -65,7 +67,7 @@ function App() {
       </Container>
 
     </ThemeProvider>)
-  ;
+    ;
 }
 
 export default App;

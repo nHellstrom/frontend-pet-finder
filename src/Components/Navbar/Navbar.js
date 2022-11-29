@@ -43,26 +43,24 @@ function Navbar() {
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
-          <Link to="">
-            <Typography
-              variant="h6"
-              noWrap
-              component="a"
-              href="/"
-              sx={{
-                mr: 2,
-                display: { xs: 'none', md: 'flex' },
-                fontFamily: 'monospace',
-                fontWeight: 700,
-                letterSpacing: '.3rem',
-                color: 'black',
-                textDecoration: 'none',
-              }}
-            >
-              PetFinder
-            </Typography>
-          </Link>
 
+          <Typography
+            variant="h6"
+            noWrap
+            component="a"
+            href="/"
+            sx={{
+              mr: 2,
+              display: { xs: 'none', md: 'flex' },
+              fontFamily: 'monospace',
+              fontWeight: 700,
+              letterSpacing: '.3rem',
+              color: 'black',
+              textDecoration: 'none',
+            }}
+          >
+            PetFinder
+          </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
@@ -108,7 +106,7 @@ function Navbar() {
             variant="h5"
             noWrap
             component="a"
-            href=""
+            href="/"
             sx={{
               mr: 2,
               display: { xs: 'flex', md: 'none' },
@@ -135,7 +133,7 @@ function Navbar() {
             ))}
           </Box>
 
-          <Box sx={{ flexGrow: 0 }}>
+          {/* <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
@@ -163,9 +161,9 @@ function Navbar() {
                 </MenuItem>
               ))}
             </Menu>
-            <LoginButton />
-            <LogoutButton />
-          </Box>
+          </Box> */}
+          <LoginButton />
+          <LogoutButton />
         </Toolbar>
       </Container>
     </AppBar >
