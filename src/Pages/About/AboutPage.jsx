@@ -4,6 +4,11 @@ import "./AboutPage.css";
 const AboutPage = () => {
   return (
     <div className="aboutpage__container">
+      <h2>About the initiative</h2>
+      <p>
+        This site was made by animal enthusiasts who wanted a little challenge practice setting up a database and website. Losing ones pet can be a very emotionally distressing event, even more so when not knowing where to turn for help. A lot of lost pet-groups are based on social media sites such as Facebook, and are particularly difficult to find if one is new to the area.
+        </p>
+          
       <h2>About us</h2>
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus commodi
@@ -12,13 +17,6 @@ const AboutPage = () => {
         explicabo?
       </p>
 
-      <h2>About the initiative</h2>
-      <p>
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusamus,
-        magnam. Eligendi labore quam mollitia! Deleniti maiores magni sequi.
-        Architecto voluptatem perspiciatis voluptatibus consectetur dolorem
-        quidem tempora minima esse atque ipsum?
-      </p>
     </div>
   );
 };

@@ -36,7 +36,7 @@ function MapComponent(props) {
     );
     console.log(apiMarkers.data);
   };
-  
+
   useEffect(() => {
     const getWebData = async () => {
       let apiMarkers = await axios.get(
@@ -122,28 +122,26 @@ function MapComponent(props) {
       },
     });
 
-    return selectedPosition ? (
-      <Marker
-        key={selectedPosition[0]}
-        position={selectedPosition}
-        interactive={false}
-      />
-    ) : null;
+    // return selectedPosition ? (
+    //   <Marker
+    //     key={selectedPosition[0]}
+    //     position={selectedPosition}
+    //     interactive={false}
+    //   />
+    // ) : null;
   };
-
   //////////////////////
   /// testingMarkers.map((x) => (
 
   return (
     <>
-      <MapContainer center={initialPosition} zoom={11}>
+      <MapContainer key={123} center={initialPosition} zoom={11}>
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
-        {/* <MapClicker2 /> */}
         {mapMarkers.map((x) => (
-          <Marker key={x[0] * Math.random()} position={x.location}>
+          <Marker key={x.id} position={x.location}>
             <Popup>
               <h3>Sighting</h3>
               <b>Latitude:</b> {x.location[0]} <br />
