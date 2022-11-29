@@ -1,5 +1,5 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import {
   Divider,
   Typography,
@@ -22,19 +22,19 @@ function Wanting() {
   const [catName, setCatName] = useState("");
   const [position, setPosition] = useState("");
   const [eventInfo, setEventInfo] = useState("");
+  const [file, setFile] = useState();
 
   //const navigate = useNavigate();
-  function wantingHandler() {
-    var payload = {
-      OwnerName: ownerName,
-      Email: email,
-      CatName: catName,
-      Position: position,
-      EventInfo: eventInfo,
-    };
-    console.log(payload);
-    axios
-      .post("https://localhost:7164/api/Cats/wanting", payload)
+ function wantingHandler() {
+    const formData = new FormData();
+    formData.append("OwnerName", ownerName);
+    formData.append("Email", email);
+    formData.append("CatName", catName); 
+    formData.append("Description", eventInfo);
+    formData.append("image", file);
+    console.log("❌",formData);
+     axios
+      .post("https://petfinderapi.azurewebsites.net/api/Wanting", formData)
       .then((response) => {
         //navigate("/");
         console.log(response);
@@ -43,25 +43,10 @@ function Wanting() {
         console.log(error.response);
       });
   }
-
-  const getWebData = async () => {
-    let apiMarkers = await axios.get(
-      "https://petfinderapi.azurewebsites.net/api/Wanting"
-    );
-    console.log(apiMarkers.data);
+  const saveFile = (e) => {
+    console.log(e.target.files[0]);
+    setFile(e.target.files[0]);
   };
-
-  // useEffect(() => {
-  //   const getWebData = async () => {
-  //     let apiMarkers = await axios.get(
-  //       "https://petfinderapi.azurewebsites.net/api/Wanting"
-  //     );
-  //     console.log("🫤", apiMarkers.data);
-  //     setMapMarkers(apiMarkers.data.wantings);
-  //   };
-
-  //   getWebData().catch(console.error());
-  // }, []);
 
   return (
     <>
@@ -118,13 +103,18 @@ function Wanting() {
             value={eventInfo}
             onChange={(e) => setEventInfo(e.target.value)}
           />
+          <TextField
+            name="upload-photo"
+            type="file"
+            onChange={saveFile}
+          />
           <Button
             variant="contained"
             className="wantingpage__button"
             color="success"
             endIcon={<SendIcon />}
             onClick={wantingHandler}
-            sx={{ mt: 3 }}
+            sx={{ mt: 2 }}
           >
             Submit
           </Button>
