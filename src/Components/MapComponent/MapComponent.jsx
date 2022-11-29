@@ -53,27 +53,12 @@ function MapComponent(props) {
   const MarkersClick = () => {
     const map = useMapEvents({
       click(e) {
-        let cordSelected = [e.latlng.lat, e.latlng.lng].forEach((x) =>
-          // x.toString().replace(".", ",");
-          console.log(x)
-        );
-        setSelectedPosition([
-          e.latlng.lat.toString().replace(".", ","),
-          e.latlng.lng.toString().replace(".", ","),
-        ]);
-        props.mapCoordinate([
-          e.latlng.lat.toString().replace(".", ","),
-          e.latlng.lng.toString().replace(".", ","),
-        ]);
-        console.log([
-          e.latlng.lat.toString().replace(".", ","),
-          e.latlng.lng.toString().replace(".", ","),
-        ]);
+        let cordSelected = [e.latlng.lat, e.latlng.lng]
+          .map((x) => x.toString().replace(".", ","))
+          .join(", ");
+        setSelectedPosition(cordSelected);
         props.mapCoordinate(cordSelected);
         console.log(cordSelected);
-        // setSelectedPosition([e.latlng.lat, e.latlng.lng]);
-        // props.mapCoordinate([e.latlng.lat, e.latlng.lng]);
-        // console.log([e.latlng.lat, e.latlng.lng]);
       },
     });
   };

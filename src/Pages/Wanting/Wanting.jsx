@@ -20,7 +20,7 @@ function Wanting() {
   const [ownerName, setOwnerName] = useState("");
   const [email, setEmail] = useState("");
   const [catName, setCatName] = useState("");
-  const [position, setPosition] = useState([]);
+  const [position, setPosition] = useState("");
   const [eventInfo, setEventInfo] = useState("");
 
   //const navigate = useNavigate();
