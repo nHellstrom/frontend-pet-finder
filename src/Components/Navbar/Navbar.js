@@ -13,6 +13,8 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Highlight';
 import { Link } from 'react-router-dom';
+import LogoutButton from '../Logout/LogoutButton';
+import LoginButton from '../Login/LoginButton';
 
 const pages = ['Map', 'ReportLostCat', 'ReportFoundCat', 'About'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
@@ -161,6 +163,8 @@ function Navbar() {
                 </MenuItem>
               ))}
             </Menu>
+            <LoginButton />
+            <LogoutButton />
           </Box>
         </Toolbar>
       </Container>

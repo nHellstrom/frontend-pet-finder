@@ -1,19 +1,23 @@
 import './App.css';
+import React from 'react';
 import Map from "./Components/MapComponent/MapComponent";
 import Frontpage from "./Pages/Frontpage/Frontpage";
 import Navbar from "./Components/Navbar/Navbar";
 import Container from '@mui/material/Container';
 import { createTheme } from '@mui/material/styles';
 import { ThemeProvider } from '@emotion/react';
-import { Route, Routes } from "react-router-dom";
+import { Router, Route, Routes } from "react-router-dom";
 import BottomNav from './Components/BottomNav/BottomNav';
 import Sighter from './Pages/Sighter/Sighter';
 import Wanting from './Pages/Wanting/Wanting';
 import Footer from './Components/Footer/Footer';
+import { useAuth0 } from "@auth0/auth0-react";
+import ProtectedRoute from './protected-routes';
 
 function App() {
-
+  //const { user, isAuthenticated, isLoading } = useAuth0();
   // Temporary test values
+
   const kattTheme = createTheme({
     palette: {
       primary: {
@@ -33,21 +37,25 @@ function App() {
   });
 
 
-  return (
+  return ( 
     <ThemeProvider theme={kattTheme}>
 
       <Container maxWidth="lg">
         <Navbar />
-
+        
         <main id="ContentArea">
+      
           <Routes>
             <Route path="" element={<Frontpage />} />
             <Route path="/" element={<Frontpage />} />
             <Route path="/map" element={<Map />} />
-            <Route path="/reportlostcat" element={<Wanting />} />
+            <Route element={<ProtectedRoute/>}>
+              <Route path="/reportlostcat" element={<Wanting />} />
+            </Route>
             <Route path="/reportfoundcat" element={<Sighter />} />
             <Route path="/about" element={<Frontpage />} />
           </Routes>
+        
         </main>
 
         {/* <footer> */}
@@ -56,8 +64,8 @@ function App() {
 
       </Container>
 
-    </ThemeProvider>
-  );
+    </ThemeProvider>)
+  ;
 }
 
 export default App;

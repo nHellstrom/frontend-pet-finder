@@ -96,6 +96,19 @@ function MapComponent(props) {
   //   console.log(latlng.lat + ', ' + latlng.lng);
   // });
 
+  // const BoundsGetter = () => {
+  //   const map = useMapEvents({
+  //     click: () => {
+  //       let mapClickLoc = map.getBounds();
+  //       console.log("🐶", mapClickLoc);
+  //     },
+  //     // locationfound: (location) => {
+  //     //   console.log("location found:", location);
+  //     // },
+  //   });
+  //   return null;
+  // };
+
   ///////////////////////// EXPERIMENTING MAP SOLUTIONS
 
   const [initialPosition, setInitialPosition] = useState([59.273, 18.0286]);
@@ -111,23 +124,23 @@ function MapComponent(props) {
     });
   }, []);
 
-  const MarkersClick = () => {
-    const map = useMapEvents({
-      click(e) {
-        setSelectedPosition([e.latlng.lat, e.latlng.lng]);
-        props.mapCoordinate([e.latlng.lat, e.latlng.lng].join(", "));
-        console.log([e.latlng.lat, e.latlng.lng]);
-      },
-    });
+  // const MarkersClick = () => {
+  //   const map = useMapEvents({
+  //     click(e) {
+  //       setSelectedPosition([e.latlng.lat, e.latlng.lng]);
+  //       props.mapCoordinate([e.latlng.lat, e.latlng.lng].join(", "));
+  //       console.log([e.latlng.lat, e.latlng.lng]);
+  //     },
+  //   });
 
-    return selectedPosition ? (
-      <Marker
-        key={selectedPosition[0]}
-        position={selectedPosition}
-        interactive={false}
-      />
-    ) : null;
-  };
+  //   return selectedPosition ? (
+  //     <Marker
+  //       key={selectedPosition[0]}
+  //       position={selectedPosition}
+  //       interactive={false}
+  //     />
+  //   ) : null;
+  // };
 
   //////////////////////
   /// testingMarkers.map((x) => (
@@ -153,7 +166,7 @@ function MapComponent(props) {
             </Popup>
           </Marker>
         ))}
-        <MarkersClick />
+        {/* <MarkersClick /> */}
       </MapContainer>
     </>
   );
