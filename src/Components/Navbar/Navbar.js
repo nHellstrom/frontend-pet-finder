@@ -15,6 +15,7 @@ import AdbIcon from '@mui/icons-material/Highlight';
 import { Link } from 'react-router-dom';
 import LogoutButton from '../Logout/LogoutButton';
 import LoginButton from '../Login/LoginButton';
+import "./Navbar.css";
 
 const pages = ['Map', 'ReportLostCat', 'ReportFoundCat', 'About'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
@@ -162,8 +163,10 @@ function Navbar() {
               ))}
             </Menu>
           </Box> */}
-          <LoginButton />
-          <LogoutButton />
+          <div className="navbar__accountbuttons">
+            <LoginButton />
+            <LogoutButton />
+          </div>
         </Toolbar>
       </Container>
     </AppBar >

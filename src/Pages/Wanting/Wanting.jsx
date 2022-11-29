@@ -20,7 +20,7 @@ function Wanting() {
   const [ownerName, setOwnerName] = useState("");
   const [email, setEmail] = useState("");
   const [catName, setCatName] = useState("");
-  const [position, setPosition] = useState("");
+  const [position, setPosition] = useState([]);
   const [eventInfo, setEventInfo] = useState("");
 
   //const navigate = useNavigate();
@@ -129,7 +129,7 @@ function Wanting() {
             disabled
             placeholder="Please enter your Location"
             value={position}
-            onChange={(e) => setPosition(e.target.value)}
+            onChange={(e) => setPosition(e.target.value.toString())}
           />
           <TextField
             label="Event Information"
