@@ -49,6 +49,7 @@ function App() {
           <Routes>
             <Route path="" element={<Frontpage />} />
             <Route path="/" element={<Frontpage />} />
+            <Route path="/home" element={<Frontpage />} />
             <Route path="/map" element={<Map />} />
             <Route element={<ProtectedRoute />}>
               <Route path="/reportlostcat" element={<Wanting />} />

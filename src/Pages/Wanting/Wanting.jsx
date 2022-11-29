@@ -32,17 +32,37 @@ function Wanting() {
       Position: position,
       EventInfo: eventInfo,
     };
-    console.log(payload);
+    console.log("🍊Payload: ", payload);
     axios
-      .post("https://localhost:7164/api/Cats/wanting", payload)
+      .post("http://petfinderapi.azurewebsites.net/api/Wanting", payload)
       .then((response) => {
         //navigate("/");
-        console.log(response);
+        console.log("🍏Response: ", response);
       })
       .catch((error) => {
-        console.log(error.response);
+        console.log("🍎Error response: ", error.response);
       });
   }
+
+  // const uploadFile = async (e) => {
+  //   console.log(file);
+  //   const formData = new FormData();
+  //   formData.append("formFile", file);
+  //   formData.append("fileName", fileName);
+
+  //   console.log("🍎", formData);
+
+  //   const response = await axios({
+  //     method: "post",
+  //     url: "http:petfinderapi.azurewebsites.net/api/Wanting",
+  //     data: formData,
+  //     headers: {
+  //       "Content-Type": `multipart/form-data; boundary=${form._boundary}`,
+  //     },
+  //   });
+
+  //   console.log("🥝", response);
+  // };
 
   const getWebData = async () => {
     let apiMarkers = await axios.get(

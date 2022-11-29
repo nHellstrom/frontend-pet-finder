@@ -5,6 +5,7 @@ import {
   TileLayer,
   Marker,
   Popup,
+  useMap,
   useMapEvents,
 } from "react-leaflet";
 import axios from "axios";
@@ -13,29 +14,8 @@ function MapComponent(props) {
   // let [mapCoordinate] = props;
   const [coordinate, setCoordinate] = useState([]);
   const [mapMarkers, setMapMarkers] = useState([]);
-
-  // useEffect(() => {
-  //   // Fetch data from the db to get coords and other data
-  // }, []);
-
-  //TODO: Add geolocation so map centers on user location
-
-  // The markers will be imported from the database instead
-  let testingMarkers = [
-    [59.273, 18.0286],
-    [59.2693, 18.1686],
-    [59.3293, 18.0686],
-    [50, 18],
-  ];
-
-  let markerArray = [];
-
-  const getWebData = async () => {
-    let apiMarkers = await axios.get(
-      "https://petfinderapi.azurewebsites.net/api/Wanting"
-    );
-    console.log(apiMarkers.data);
-  };
+  const [initialPosition, setInitialPosition] = useState([59.273, 18.0286]);
+  const [selectedPosition, setSelectedPosition] = useState([0, 0]);
 
   useEffect(() => {
     const getWebData = async () => {
@@ -46,44 +26,8 @@ function MapComponent(props) {
       setMapMarkers(apiMarkers.data.wantings);
     };
 
-    getWebData().catch(console.error());
+    getWebData().catch((e) => console.error("An error was caught!", e));
   }, []);
-
-  // For selecting a point on the map, for the submission forms
-  // const MapClicker = () => {
-  //   const map = useMapEvents({
-  //     click: () => {
-  //       map.locate();
-  //     },
-  //     locationfound: (location) => {
-  //       // console.log("location found:", location);
-  //       console.log("📌longitude found:", location.longitude);
-  //       console.log("📌latitude found:", location.latitude);
-  //       let coord = [location.latitude, location.longitude];
-  //       setCoordinate(coord);
-  //       props.mapCoordinate(coord.join(", "));
-  //     },
-  //   });
-  //   return null;
-  // };
-
-  // function MapClicker2() {
-  //   const map = useMapEvents({
-  //     click: () => {
-  //       let mapClickLoc = map.mouseEventToLatLng();
-  //       console.log(mapClickLoc.lat, mapClickLoc.lng);
-  //     },
-  //     // locationfound: (location) => {
-  //     //   console.log("location found:", location);
-  //     // },
-  //   });
-  //   return null;
-  // }
-
-  // marker.on('click', function(ev){
-  //   var latlng = map.mouseEventToLatLng(ev.originalEvent);
-  //   console.log(latlng.lat + ', ' + latlng.lng);
-  // });
 
   // const BoundsGetter = () => {
   //   const map = useMapEvents({
@@ -98,13 +42,6 @@ function MapComponent(props) {
   //   return null;
   // };
 
-  ///////////////////////// EXPERIMENTING MAP SOLUTIONS
-
-  const [initialPosition, setInitialPosition] = useState([59.273, 18.0286]);
-  const [selectedPosition, setSelectedPosition] = useState([0, 0]);
-
-  // const [currentLocation, setCurrentLocation] = useState();
-
   useEffect(() => {
     navigator.geolocation.getCurrentPosition((position) => {
       const { latitude, longitude } = position.coords;
@@ -117,21 +54,11 @@ function MapComponent(props) {
     const map = useMapEvents({
       click(e) {
         setSelectedPosition([e.latlng.lat, e.latlng.lng]);
-        props.mapCoordinate([e.latlng.lat, e.latlng.lng].join(", "));
+        props.mapCoordinate([e.latlng.lat, e.latlng.lng]);
         console.log([e.latlng.lat, e.latlng.lng]);
       },
     });
-
-    // return selectedPosition ? (
-    //   <Marker
-    //     key={selectedPosition[0]}
-    //     position={selectedPosition}
-    //     interactive={false}
-    //   />
-    // ) : null;
   };
-  //////////////////////
-  /// testingMarkers.map((x) => (
 
   return (
     <>

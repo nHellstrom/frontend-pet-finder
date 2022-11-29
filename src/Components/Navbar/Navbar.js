@@ -62,7 +62,6 @@ function Navbar() {
             PetFinder
           </Typography>
 
-
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
               size="large"
@@ -107,7 +106,7 @@ function Navbar() {
             variant="h5"
             noWrap
             component="a"
-            href=""
+            href="/"
             sx={{
               mr: 2,
               display: { xs: 'flex', md: 'none' },
@@ -134,7 +133,7 @@ function Navbar() {
             ))}
           </Box>
 
-          <Box sx={{ flexGrow: 0 }}>
+          {/* <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
@@ -162,9 +161,9 @@ function Navbar() {
                 </MenuItem>
               ))}
             </Menu>
-            <LoginButton />
-            <LogoutButton />
-          </Box>
+          </Box> */}
+          <LoginButton />
+          <LogoutButton />
         </Toolbar>
       </Container>
     </AppBar >

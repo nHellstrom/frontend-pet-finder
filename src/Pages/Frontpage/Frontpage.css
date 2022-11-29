@@ -58,8 +58,25 @@
 .landingimage__herotextbuttons {
   display: flex;
   justify-content: space-around;
+  align-items: center;
   gap: 5px;
 }
 
 .landingimage__herotextbuttons > Button {
+}
+
+@media screen and (max-width: 690px) {
+  .landingimage__herobox {
+    grid-column: 1 / span 2;
+    grid-row: 2 / span 2;
+    transform: translateX(5%);
+  }
+}
+
+@media screen and (max-width: 400) {
+  .landingimage__herobox {
+    grid-column: 1 / span 2;
+    grid-row: 2 / span 2;
+    transform: translateX(5%);
+  }
 }
