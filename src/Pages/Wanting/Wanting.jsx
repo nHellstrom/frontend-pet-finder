@@ -105,8 +105,10 @@ function Wanting() {
           />
           <TextField
             name="upload-photo"
+            placeholder="Please enter event info"
             type="file"
-            onChange={saveFile}
+            value={file}
+            onChange={(e) => setFile(e.target.value)}
           />
           <Button
             variant="contained"
