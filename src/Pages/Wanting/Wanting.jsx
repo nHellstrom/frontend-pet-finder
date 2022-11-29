@@ -25,35 +25,61 @@ function Wanting() {
   const [file, setFile] = useState();
 
   //const navigate = useNavigate();
-  async function wantingHandler() {
+  const wantingHandler = async () => {
     const reader = new FileReader();
+    let base64String;
     reader.onloadend = () => {
-      console.log(reader.result);
+       base64String = reader.result
+          //.replace('data:', '')
+        //  .replace(/^.+,/, '');
+      console.log("Base64 string:", base64String);
       // Logs data:<type>;base64,wL2dvYWwgbW9yZ...
     };
-    reader.readAsDataURL(file);
-  /*  var formData = new FormData();
+    reader.readAsArrayBuffer(file)
+
+    //reader.readAsDataURL(file);
+  /* let formData = new FormData();
     formData.append("OwnerName", ownerName )
     formData.append("Email:", email)
     formData.append("CatName:", catName)
     formData.append("Position:", position)
-    formData.append("Eventinfo:", eventInfo)*/
+    formData.append("Eventinfo:", eventInfo)
+      console.log("🍊🍊🍊", formData);*/
+    //formData.append("image:", base64String)
     let payload = {
       OwnerName: ownerName,
       Email: email,
       CatName: catName,
       Position: position,
       EventInfo: eventInfo,
-      image: reader.result
+    //  image: base64String
     };
+
     //console.log(file);
     //const formData = new FormData();
     //formData.append("image", "blob", file);
+
     try {
-      const res = await axios.post("https://petfinderapi.azurewebsites.net/api/Wanting", payload);
-      console.log(res);
+        const response = await axios({
+            method: "post",
+            url: "https://petfinderapi.azurewebsites.net/api/Wanting/lottentestingstuff",
+            data: payload,
+           // headers: { "Content-type": "application/json" },
+        });
+        console.log("🍊",response)
+
+
+
+/*
+      const res = await axios.post("https://petfinderapi.azurewebsites.net/api/Wanting", formData,
+        {
+            headers: {
+                "Content-type": "multipart/form-data",
+            },
+        });
+      console.log("🍊", res);*/
     } catch (ex) {
-      console.log(ex);
+      console.log("🍊🍊", ex);
     }
   };
   const saveFile = (e) => {
