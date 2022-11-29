@@ -44,24 +44,20 @@ function Wanting() {
       });
   }
   return (
-    <div className="wanting">
-      <Container
-        variant="outlined"
-        sx={{ width: 400, maxWidth: "100%", gap: 1.5 }}
-      >
-        <Typography
-          variant="h5"
-          color="inherit"
-          noWrap
-          sx={{ color: "DarkMagenta", m: 1 }}
-        >
-          <b>PET FINDER FORM</b>
-        </Typography>
-
+    <>
+      <div className="wantingpage__introtext">
+        <h2>Report Lost Pet</h2>
+        <p>
+          Use this form to make a report about a lost pet. Select the last known
+          location on the map. 
+        </p>
+      </div>
+      <div className="wantingpage__container">
         <MapComponent mapCoordinate={setPosition} />
 
         <Box
           component="form"
+          className="wantingpage__submissionform"
           sx={{
             "& .MuiTextField-root": { m: 1, mt: 2, width: "30ch" },
           }}
@@ -102,19 +98,19 @@ function Wanting() {
             value={eventInfo}
             onChange={(e) => setEventInfo(e.target.value)}
           />
+          <Button
+            variant="contained"
+            className="wantingpage__button"
+            color="success"
+            endIcon={<SendIcon />}
+            onClick={wantingHandler}
+            sx={{ mt: 3 }}
+          >
+            Submit
+          </Button>
         </Box>
-        <Button
-          variant="contained"
-          className="wantingpage__button"
-          color="success"
-          endIcon={<SendIcon />}
-          onClick={wantingHandler}
-          sx={{ mt: 3 }}
-        >
-          Submit
-        </Button>
-      </Container>
-    </div>
+      </div>
+    </>
   );
 }
 

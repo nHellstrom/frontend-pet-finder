@@ -124,30 +124,29 @@ function MapComponent(props) {
     });
   }, []);
 
-  // const MarkersClick = () => {
-  //   const map = useMapEvents({
-  //     click(e) {
-  //       setSelectedPosition([e.latlng.lat, e.latlng.lng]);
-  //       props.mapCoordinate([e.latlng.lat, e.latlng.lng].join(", "));
-  //       console.log([e.latlng.lat, e.latlng.lng]);
-  //     },
-  //   });
+  const MarkersClick = () => {
+    const map = useMapEvents({
+      click(e) {
+        setSelectedPosition([e.latlng.lat, e.latlng.lng]);
+        props.mapCoordinate([e.latlng.lat, e.latlng.lng].join(", "));
+        console.log([e.latlng.lat, e.latlng.lng]);
+      },
+    });
 
-  //   return selectedPosition ? (
-  //     <Marker
-  //       key={selectedPosition[0]}
-  //       position={selectedPosition}
-  //       interactive={false}
-  //     />
-  //   ) : null;
-  // };
+    return selectedPosition ? (
+      <Marker
+        key={selectedPosition[0]}
+        position={selectedPosition}
+        interactive={false}
+      />
+    ) : null;
+  };
 
   //////////////////////
   /// testingMarkers.map((x) => (
 
   return (
     <>
-      <h1>Map</h1>
       <MapContainer center={initialPosition} zoom={11}>
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -166,7 +165,7 @@ function MapComponent(props) {
             </Popup>
           </Marker>
         ))}
-        {/* <MarkersClick /> */}
+        <MarkersClick />
       </MapContainer>
     </>
   );

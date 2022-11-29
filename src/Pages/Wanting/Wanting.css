@@ -1,7 +1,27 @@
-.wanting {
+/* .wanting {
   border-radius: 5px;
   background-color: #f2f2f2;
   padding: 20px;
+} */
+
+.wantingpage__container {
+  display: flex;
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+
+.wantingpage__introtext {
+  text-align: center;
+  padding: 8px 12px;
+}
+
+.wantingpage__submissionform {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 12px 8px;
 }
 
 .wantingpage__button {
