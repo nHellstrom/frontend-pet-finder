@@ -36,7 +36,7 @@ function MapComponent(props) {
     );
     console.log(apiMarkers.data);
   };
-  
+
   useEffect(() => {
     const getWebData = async () => {
       let apiMarkers = await axios.get(
@@ -117,8 +117,8 @@ function MapComponent(props) {
     const map = useMapEvents({
       click(e) {
         setSelectedPosition([e.latlng.lat, e.latlng.lng]);
-        props.mapCoordinate([e.latlng.lat, e.latlng.lng].join(", "));
-        console.log([e.latlng.lat, e.latlng.lng]);
+        props.mapCoordinate([e.latlng.lat, e.latlng.lng]);
+        console.log([typeof e.latlng.lat, typeof e.latlng.lng]);
       },
     });
 
@@ -143,7 +143,7 @@ function MapComponent(props) {
         />
         {/* <MapClicker2 /> */}
         {mapMarkers.map((x) => (
-          <Marker key={x[0] * Math.random()} position={x.location}>
+          <Marker key={x.id} position={x.location}>
             <Popup>
               <h3>Sighting</h3>
               <b>Latitude:</b> {x.location[0]} <br />
