@@ -28,36 +28,25 @@ function MapComponent(props) {
     [50, 18],
   ];
 
+  let markerArray = [];
+
   const getWebData = async () => {
     let apiMarkers = await axios.get(
       "https://petfinderapi.azurewebsites.net/api/Wanting"
     );
     console.log(apiMarkers.data);
   };
-
-  let markerArray = [];
-
+  
   useEffect(() => {
     const getWebData = async () => {
       let apiMarkers = await axios.get(
         "https://petfinderapi.azurewebsites.net/api/Wanting"
       );
-      // console.log(apiMarkers.data.wantings);
-      // apiMarkers.data.wantings.forEach((element) => {
-      //   console.log(element.location);
-      //   // markerArray.push(element.location);
       console.log("🫤", apiMarkers.data);
       setMapMarkers(apiMarkers.data.wantings);
-      // setMapMarkers([
-      //   [...mapMarkers],
-      //   [element.location[0], element.location[1]],
-      // ]);
-      //   console.log("🗺️", mapMarkers);
-      // });
     };
 
     getWebData().catch(console.error());
-    // console.log(markerArray);
   }, []);
 
   // For selecting a point on the map, for the submission forms

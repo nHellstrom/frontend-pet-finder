@@ -43,13 +43,33 @@ function Wanting() {
         console.log(error.response);
       });
   }
+
+  const getWebData = async () => {
+    let apiMarkers = await axios.get(
+      "https://petfinderapi.azurewebsites.net/api/Wanting"
+    );
+    console.log(apiMarkers.data);
+  };
+
+  // useEffect(() => {
+  //   const getWebData = async () => {
+  //     let apiMarkers = await axios.get(
+  //       "https://petfinderapi.azurewebsites.net/api/Wanting"
+  //     );
+  //     console.log("🫤", apiMarkers.data);
+  //     setMapMarkers(apiMarkers.data.wantings);
+  //   };
+
+  //   getWebData().catch(console.error());
+  // }, []);
+
   return (
     <>
       <div className="wantingpage__introtext">
         <h2>Report Lost Pet</h2>
         <p>
           Use this form to make a report about a lost pet. Select the last known
-          location on the map. 
+          location on the map.
         </p>
       </div>
       <div className="wantingpage__container">
