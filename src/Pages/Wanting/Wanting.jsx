@@ -15,34 +15,51 @@ import { useNavigate } from "react-router-dom";
 import "./Wanting.css";
 import SendIcon from "@mui/icons-material/Send";
 import MapComponent from "../../Components/MapComponent/MapComponent";
-
+import ImageUpload from "../../Components/ImageUpload/FileUpload"
 function Wanting() {
   const [ownerName, setOwnerName] = useState("");
   const [email, setEmail] = useState("");
   const [catName, setCatName] = useState("");
   const [position, setPosition] = useState("");
   const [eventInfo, setEventInfo] = useState("");
+  const [file, setFile] = useState();
 
   //const navigate = useNavigate();
-  function wantingHandler() {
-    var payload = {
+  async function wantingHandler() {
+    const reader = new FileReader();
+    reader.onloadend = () => {
+      console.log(reader.result);
+      // Logs data:<type>;base64,wL2dvYWwgbW9yZ...
+    };
+    reader.readAsDataURL(file);
+  /*  var formData = new FormData();
+    formData.append("OwnerName", ownerName )
+    formData.append("Email:", email)
+    formData.append("CatName:", catName)
+    formData.append("Position:", position)
+    formData.append("Eventinfo:", eventInfo)*/
+    let payload = {
       OwnerName: ownerName,
       Email: email,
       CatName: catName,
       Position: position,
       EventInfo: eventInfo,
+      image: reader.result
     };
-    console.log(payload);
-    axios
-      .post("https://localhost:7164/api/Cats/wanting", payload)
-      .then((response) => {
-        //navigate("/");
-        console.log(response);
-      })
-      .catch((error) => {
-        console.log(error.response);
-      });
-  }
+    //console.log(file);
+    //const formData = new FormData();
+    //formData.append("image", "blob", file);
+    try {
+      const res = await axios.post("https://petfinderapi.azurewebsites.net/api/Wanting", payload);
+      console.log(res);
+    } catch (ex) {
+      console.log(ex);
+    }
+  };
+  const saveFile = (e) => {
+    console.log(e.target.files[0]);
+    setFile(e.target.files[0]);
+  };  
   return (
     <div className="wanting">
       <Container
@@ -101,6 +118,12 @@ function Wanting() {
             minRows={3}
             value={eventInfo}
             onChange={(e) => setEventInfo(e.target.value)}
+          />
+          <TextField
+              label="image"
+              type="file"
+              onChange={saveFile}
+              key="123456"
           />
         </Box>
         <Button
