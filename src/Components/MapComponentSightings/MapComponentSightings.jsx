@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./MapComponent.css";
+import "./MapComponentSightings.css";
 import {
   MapContainer,
   TileLayer,
@@ -14,17 +14,17 @@ import axios from "axios";
 function MapComponent(props) {
   // let [mapCoordinate] = props;
   const [coordinate, setCoordinate] = useState([]);
-  const [mapMarkers, setMapMarkers] = useState([]);
+  const [mapMarkersSightings, setmapMarkersSightings] = useState([]);
   const [initialPosition, setInitialPosition] = useState([59.273, 18.0286]);
   const [selectedPosition, setSelectedPosition] = useState([0, 0]);
 
   useEffect(() => {
-    const getWebData = async () => {
-      let apiMarkers = await axios.get(
-        "https://petfinderapi.azurewebsites.net/api/Wanting"
+    let getWebData = async () => {
+      const apiMarkersSightings = await axios.get(
+        "https://petfinderapi.azurewebsites.net/api/Sighting"
       );
-      console.log("🫤", apiMarkers.data);
-      setMapMarkers(apiMarkers.data.wantings);
+      console.log("🫤🔦", apiMarkersSightings.data);
+      setmapMarkersSightings(apiMarkersSightings.data.sightings);
     };
 
     getWebData().catch((e) => console.error("An error was caught!", e));
@@ -96,13 +96,13 @@ function MapComponent(props) {
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
-        {mapMarkers.map((x) => (
+        {mapMarkersSightings.map((x) => (
           <Marker key={x.id} position={x.location}>
             <Popup>
-              <h3>Lost</h3>
+              <h3>Sighting</h3>
               <b>Latitude:</b> {x.location[0]} <br />
               <b>Longitude:</b> {x.location[1]} <br />
-              <b>Description:</b> Blah <br />
+              <b>Description:</b> Blahh <br />
               <i>Image Link:</i> {x.pictureUrl}
               <img src={x.pictureUrl} width="100%"></img>
             </Popup>

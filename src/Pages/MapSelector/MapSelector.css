@@ -1,0 +1,29 @@
+.mapselector__container {
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.mapselector__button {
+  transform: scale(3);
+}
+
+@media screen and (max-width: 930px) {
+  .mapselector__container {
+    flex-direction: column;
+    min-height: 50vh;
+    gap: 3vh;
+  }
+}
+
+@media screen and (max-width: 400) {
+  .landingimage__herobox {
+    grid-column: 1 / span 2;
+    grid-row: 2 / span 2;
+    transform: translateX(5%);
+  }
+}
