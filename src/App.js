@@ -60,7 +60,7 @@ function App() {
             <Route element={<ProtectedRoute />}>
               <Route path="/reportlostcat" element={<Wanting />} />
             </Route>
-            <Route path="/reportfoundcat" element={<Sighter />} />
+            <Route path="/reportfoundcat" element={<Sighting />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/profile" element={<Profile />} />
           </Routes>
