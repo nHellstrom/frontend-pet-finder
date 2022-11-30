@@ -12,7 +12,7 @@ import Sighter from './Pages/Sighter/Sighter';
 import Wanting from './Pages/Wanting/Wanting';
 import Footer from './Components/Footer/Footer';
 import { useAuth0 } from "@auth0/auth0-react";
-import ProtectedRoute from './protected-routes';
+import ProtectedRoute from './Components/AuthRouter/AuthRouter';
 import AboutPage from './Pages/About/AboutPage';
 
 function App() {
@@ -60,8 +60,6 @@ function App() {
 
         </main>
 
-        {/* <footer> */}
-        {/* </footer> */}
         <Footer />
 
       </Container>
