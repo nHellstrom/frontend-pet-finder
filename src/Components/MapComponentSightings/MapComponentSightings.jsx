@@ -102,7 +102,7 @@ function MapComponent(props) {
               <h3>Sighting</h3>
               <b>Latitude:</b> {x.location[0]} <br />
               <b>Longitude:</b> {x.location[1]} <br />
-              <b>Description:</b> Blah <br />
+              <b>Description:</b> Blahh <br />
               <i>Image Link:</i> {x.pictureUrl}
               <img src={x.pictureUrl} width="100%"></img>
             </Popup>
