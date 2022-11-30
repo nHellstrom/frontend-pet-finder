@@ -15,6 +15,8 @@ import AdbIcon from '@mui/icons-material/Highlight';
 import { Link } from 'react-router-dom';
 import LogoutButton from '../Logout/LogoutButton';
 import LoginButton from '../Login/LoginButton';
+import { useAuth0 } from "@auth0/auth0-react";
+import "./Navbar.css";
 
 const pages = ['Map', 'ReportLostCat', 'ReportFoundCat', 'About'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
@@ -22,6 +24,8 @@ const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 function Navbar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
+
+  const { isAuthenticated } = useAuth0();
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -162,8 +166,29 @@ function Navbar() {
               ))}
             </Menu>
           </Box> */}
-          <LoginButton />
-          <LogoutButton />
+          <div className="navbar__accountbuttons">
+            {!isAuthenticated && (
+              <LoginButton />)}
+            {isAuthenticated && (
+              <LogoutButton />)}
+            <Typography
+              variant="h6"
+              noWrap
+              component="a"
+              href="/"
+              sx={{
+                mr: 2,
+                display: { xs: 'none', md: 'flex' },
+                fontFamily: 'monospace',
+                fontWeight: 700,
+                letterSpacing: '.3rem',
+                color: 'black',
+                textDecoration: 'none',
+              }}
+            >
+              PetFinder
+            </Typography>
+          </div>
         </Toolbar>
       </Container>
     </AppBar >
