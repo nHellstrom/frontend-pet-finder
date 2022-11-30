@@ -6,8 +6,6 @@ import reportWebVitals from "./reportWebVitals";
 import { CssBaseline } from "@mui/material";
 import { BrowserRouter } from "react-router-dom";
 import { Auth0Provider } from "@auth0/auth0-react";
-import Wanting from "./Pages/Wanting/Wanting";
-// import Hero from "./Pages/Hero/Hero";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
