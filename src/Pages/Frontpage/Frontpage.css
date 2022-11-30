@@ -2,6 +2,13 @@
   font-family: "Josefin Sans", sans-serif;
 }
 
+@keyframes slightmovement {
+    0%   {transform: translateX(-20px)  }
+    25%  {background-color: yellow;}
+    50%  {background-color: blue;}
+    100% {background-color: green;}
+  }
+
 .landingimage {
   background-color: aquamarine;
   background-position: center;

@@ -6,7 +6,7 @@ const Footer = () => {
   return (
     <footer className="footer">
       <div className="footer__half footer__lefthalf">
-        <h5>Pet Finder</h5>
+        <h5>Fauni</h5>
         <sub>
           <ul className="footer__infotext">
             <li>Contact Information</li>

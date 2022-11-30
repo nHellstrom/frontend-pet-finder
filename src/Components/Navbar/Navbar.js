@@ -63,7 +63,7 @@ function Navbar() {
               textDecoration: 'none',
             }}
           >
-            PetFinder
+            FAUNI
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -122,7 +122,7 @@ function Navbar() {
               textDecoration: 'none',
             }}
           >
-            PET FINDER
+            FAUNI
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
