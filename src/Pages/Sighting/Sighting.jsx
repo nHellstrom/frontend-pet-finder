@@ -23,6 +23,7 @@ function Sighting() {
   const [position, setPosition] = useState("");
   const [eventInfo, setEventInfo] = useState("");
   const [file, setFile] = useState();
+  const [user, setuser] = useState("");
 
   //const navigate = useNavigate();
  function sightingHandler() {
@@ -30,9 +31,10 @@ function Sighting() {
     formData.append("InformerName", informerName);
     formData.append("Email", email);
     formData.append("CatDescription", petDescription); 
-  //  // formData.append("location",position);
+  formData.append("Position",position);
     formData.append("EventInfo", eventInfo);
     formData.append("image", file);
+    formData.append("User", user);
     console.log("❌",formData);
      axios
       .post("https://petfinderapi.azurewebsites.net/api/Sighting", formData)
@@ -96,6 +98,12 @@ function Sighting() {
             placeholder="Please enter the location"
             value={position}
             onChange={(e) => setPosition(e.target.value)}
+          />
+           <TextField
+            label="Contact Info"
+            placeholder="Please enter the contact info"
+            value={user}
+            onChange={(e) => setuser(e.target.value)}
           />
           <TextField
             label="Sighting Information"
