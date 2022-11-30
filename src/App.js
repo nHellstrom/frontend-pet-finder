@@ -8,13 +8,14 @@ import { createTheme } from '@mui/material/styles';
 import { ThemeProvider } from '@emotion/react';
 import { Router, Route, Routes } from "react-router-dom";
 import BottomNav from './Components/BottomNav/BottomNav';
-import Sighter from './Pages/Sighter/Sighter';
+
 import Wanting from './Pages/Wanting/Wanting';
 import Footer from './Components/Footer/Footer';
 import { useAuth0 } from "@auth0/auth0-react";
 import ProtectedRoute from './Components/AuthRouter/AuthRouter';
 import AboutPage from './Pages/About/AboutPage';
 import Profile from './Components/Profile/Profile';
+import Sighting from './Pages/Sighting/Sighting';
 
 function App() {
   //const { user, isAuthenticated, isLoading } = useAuth0();
@@ -55,7 +56,7 @@ function App() {
             <Route element={<ProtectedRoute />}>
               <Route path="/reportlostcat" element={<Wanting />} />
             </Route>
-            <Route path="/reportfoundcat" element={<Sighter />} />
+            <Route path="/reportfoundcat" element={<Sighting />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/profile" element={<Profile />} />
           </Routes>

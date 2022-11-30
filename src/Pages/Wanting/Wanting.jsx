@@ -30,7 +30,7 @@ function Wanting() {
     formData.append("OwnerName", ownerName);
     formData.append("Email", email);
     formData.append("CatName", catName); 
-  //  // formData.append("location",position);
+    formData.append("Position",position);
     formData.append("Description", eventInfo);
     formData.append("image", file);
     console.log("❌",formData);
@@ -38,10 +38,10 @@ function Wanting() {
       .post("https://petfinderapi.azurewebsites.net/api/Wanting", formData)
       .then((response) => {
         //navigate("/");
-        console.log("🍏Response: ", response);
+        console.log(response);
       })
       .catch((error) => {
-        console.log("🍎Error response: ", error.response);
+        console.log(error.response);
       });
   }
   const saveFile = (e) => {
@@ -106,10 +106,8 @@ function Wanting() {
           />
           <TextField
             name="upload-photo"
-            placeholder="Please enter event info"
             type="file"
-            value={file}
-            onChange={(e) => setFile(e.target.value)}
+            onChange={saveFile}
           />
           <Button
             variant="contained"
