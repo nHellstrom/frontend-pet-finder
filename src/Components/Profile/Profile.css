@@ -1,0 +1,7 @@
+.profilepage__container {
+  margin: 0 auto;
+  padding-top: 1rem;
+  min-width: 33%;
+  max-width: 50%;
+  box-shadow: 0 0 5px 10px rgba(0, 0, 0, 0.15);
+}
