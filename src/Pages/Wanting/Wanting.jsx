@@ -30,6 +30,7 @@ function Wanting() {
     formData.append("OwnerName", ownerName);
     formData.append("Email", email);
     formData.append("CatName", catName); 
+    formData.append("Position",position);
     formData.append("Description", eventInfo);
     formData.append("image", file);
     console.log("❌",formData);
