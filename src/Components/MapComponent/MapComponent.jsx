@@ -9,10 +9,8 @@ import {
   useMapEvents,
 } from "react-leaflet";
 import axios from "axios";
-// import { iconPerson } from "./Icon";
 
 function MapComponent(props) {
-  // let [mapCoordinate] = props;
   const [coordinate, setCoordinate] = useState([]);
   const [mapMarkers, setMapMarkers] = useState([]);
   const [initialPosition, setInitialPosition] = useState([59.273, 18.0286]);
@@ -23,7 +21,7 @@ function MapComponent(props) {
       let apiMarkers = await axios.get(
         "https://petfinderapi.azurewebsites.net/api/Wanting"
       );
-      console.log("🫤", apiMarkers.data);
+      // console.log("🫤", apiMarkers.data);
       setMapMarkers(apiMarkers.data.wantings);
     };
 
@@ -34,7 +32,6 @@ function MapComponent(props) {
     navigator.geolocation.getCurrentPosition((position) => {
       const { latitude, longitude } = position.coords;
       setInitialPosition([latitude, longitude]);
-      console.log("🏠", latitude, longitude);
     });
   }, []);
 
@@ -62,11 +59,13 @@ function MapComponent(props) {
           <Marker key={x.id} position={x.location}>
             <Popup>
               <h3>Lost</h3>
-              <b>Latitude:</b> {x.location[0]} <br />
-              <b>Longitude:</b> {x.location[1]} <br />
+              <b>Name:</b> {x.catName} <br />
               <b>Description:</b> {x.eventInfo} <br />
+              <b>Contact info:</b> {x.contactinformation} <br />
+              <b>Latitude:</b> {x.location[0].toFixed(2)} <br />
+              <b>Longitude:</b> {x.location[1].toFixed(2)} <br />
               <b>Image:</b>
-              <img src={x.pictureUrl} width="100%"></img>
+              <img src={x.pictureUrl} className="map__markerimage"></img>
             </Popup>
           </Marker>
         ))}

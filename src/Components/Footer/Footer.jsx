@@ -9,7 +9,7 @@ const Footer = () => {
         <h5>Fauni</h5>
         <sub>
           <ul className="footer__infotext">
-            <li>Contact Information</li>
+            <li>(+46) 0712 345 678 </li>
             <li>Contact Information</li>
           </ul>
         </sub>
