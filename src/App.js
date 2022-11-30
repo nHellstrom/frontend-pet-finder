@@ -12,8 +12,9 @@ import Sighter from './Pages/Sighter/Sighter';
 import Wanting from './Pages/Wanting/Wanting';
 import Footer from './Components/Footer/Footer';
 import { useAuth0 } from "@auth0/auth0-react";
-import ProtectedRoute from './protected-routes';
+import ProtectedRoute from './Components/AuthRouter/AuthRouter';
 import AboutPage from './Pages/About/AboutPage';
+import Profile from './Components/Profile/Profile';
 
 function App() {
   //const { user, isAuthenticated, isLoading } = useAuth0();
@@ -56,12 +57,11 @@ function App() {
             </Route>
             <Route path="/reportfoundcat" element={<Sighter />} />
             <Route path="/about" element={<AboutPage />} />
+            <Route path="/profile" element={<Profile />} />
           </Routes>
 
         </main>
 
-        {/* <footer> */}
-        {/* </footer> */}
         <Footer />
 
       </Container>
