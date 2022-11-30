@@ -8,7 +8,7 @@ import Container from '@mui/material/Container';
 import { createTheme } from '@mui/material/styles';
 import { ThemeProvider } from '@emotion/react';
 import { Route, Routes } from "react-router-dom";
-import Sighting from './Pages/Sighter/Sighter';
+import Sighting from './Pages/Sighting/Sighting';
 import Wanting from './Pages/Wanting/Wanting';
 import Footer from './Components/Footer/Footer';
 import { useAuth0 } from "@auth0/auth0-react";
