@@ -19,11 +19,11 @@ const Front = () => {
             helpful strangers about lost and found pets
           </p>
           <p>
-            Losing a pet can be very emotionally distressful, and the tools{" "}
+            Losing a pet can be very emotionally distressful, and the tools
             <b>Fauni</b> fills a niche is a global web service for helping
             people with runaway pets to connect with people who might have seen
-            it. People are encouraged to use the <b>"Report Lost Pet"</b>{" "}
-            service if you've lost an animal, and <b>"Report Found Pet"</b>
+            it. People are encouraged to use the <b>"Report Lost Pet"</b>
+            service if you've lost an animal, and <b>"Report Found Pet" </b>
             if you spot or catch a roaming pet which seems lost.
           </p>
         </div>
