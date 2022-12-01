@@ -1,17 +1,13 @@
 import React from "react";
 import { useState } from "react";
 import {
-  Divider,
-  Typography,
-  Input,
+  Stack,
+  Alert,
   Button,
   Box,
-  Container,
   TextField,
-  FormControl,
 } from "@mui/material";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
 import "./Sighting.css";
 import SendIcon from "@mui/icons-material/Send";
 import MapComponent from "../../Components/MapComponent/MapComponent";
@@ -24,8 +20,9 @@ function Sighting() {
   const [eventInfo, setEventInfo] = useState("");
   const [file, setFile] = useState();
   const [user, setuser] = useState("");
+  const [alert, setAlert] = useState(Boolean);
+  const [alertContent, setAlertContent] = useState('');
 
-  //const navigate = useNavigate();
   function sightingHandler() {
     const formData = new FormData();
     formData.append("InformerName", informerName);
@@ -39,9 +36,13 @@ function Sighting() {
     axios
       .post("https://petfinderapi.azurewebsites.net/api/Sighting", formData)
       .then((response) => {
-        // console.log("🍏Response: ", response);
+        setAlert(true);
+        setAlertContent(<Alert variant="outlined" severity='success'>Successfully submitted</Alert>);
+        console.log("🍏Response: ", response);
       })
       .catch((error) => {
+        setAlert(true);
+        setAlertContent(<Alert variant="outlined" severity='error'>Please fill all the fields</Alert>);
         console.log("🍎Error response: ", error.response);
       });
   }
@@ -116,6 +117,9 @@ function Sighting() {
           >
             Submit
           </Button>
+          <Stack sx={{ width: '90%', m: 2 }}>
+            {alert ? <>{alertContent}</> : <></>}
+          </Stack>
         </Box>
       </div>
     </>

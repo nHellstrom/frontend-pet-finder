@@ -1,0 +1,4 @@
+{
+  "appService.defaultWebAppToDeploy": "/subscriptions/52a6ca41-9414-4fb9-8a71-56a48a7cbd1c/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/fauniapp",
+  "appService.deploySubpath": "."
+}
