@@ -1,5 +1,5 @@
 .AuthRouter__container {
   margin: 0 auto;
   padding: 1.5rem 0;
-  width: 20%;
+  max-width: 25ch;
 }
