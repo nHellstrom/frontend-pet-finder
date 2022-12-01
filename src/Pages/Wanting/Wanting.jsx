@@ -1,14 +1,11 @@
 import React from "react";
 import { useState } from "react";
 import {
-  Divider,
-  Typography,
-  Input,
+  Stack,
+  Alert,
   Button,
   Box,
-  Container,
   TextField,
-  FormControl,
 } from "@mui/material";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
@@ -25,6 +22,8 @@ function Wanting() {
   const [eventInfo, setEventInfo] = useState("");
   const [file, setFile] = useState();
   const { user, isAuthenticated, isLoading } = useAuth0();
+  const [alert, setAlert] = useState(Boolean);
+  const [alertContent, setAlertContent] = useState('');
 
   //const navigate = useNavigate();
   function wantingHandler() {
@@ -40,14 +39,17 @@ function Wanting() {
       .post("https://petfinderapi.azurewebsites.net/api/Wanting", formData)
       .then((response) => {
         //navigate("/");
-        console.log(response);
+        setAlert(true);
+        setAlertContent(<Alert variant="outlined" severity='success'>Successfully submitted</Alert>);
+        console.log("🍏Response: ", response);
       })
       .catch((error) => {
-        console.log(error.response);
+        setAlert(true);
+        setAlertContent(<Alert variant="outlined" severity='error'>Please fill all the fields</Alert>);
+        console.log("🍎Error response: ", error.response);
       });
   }
   const saveFile = (e) => {
-    console.log(e.target.files[0]);
     setFile(e.target.files[0]);
   };
 
@@ -118,6 +120,9 @@ function Wanting() {
           >
             Submit
           </Button>
+          <Stack sx={{ width: '90%', m: 2 }}>
+            {alert ? <>{alertContent}</> : <></>}
+          </Stack>
         </Box>
       </div>
     </>
