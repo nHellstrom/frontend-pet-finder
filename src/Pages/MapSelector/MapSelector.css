@@ -9,7 +9,7 @@
 }
 
 .mapselector__button {
-  transform: scale(3);
+  transform: scale(2);
 }
 
 @media screen and (max-width: 930px) {
