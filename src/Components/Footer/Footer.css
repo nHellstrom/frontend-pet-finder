@@ -36,3 +36,9 @@
 .footer__link:visited {
   color: inherit;
 }
+
+@media screen and (max-width: 500px) {
+  .footer__lefthalf {
+    display: none;
+  }
+}
