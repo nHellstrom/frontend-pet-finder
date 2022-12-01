@@ -23,10 +23,10 @@ const Footer = () => {
           Map
         </Link>
         <Link to="/ReportLostPet" className="footer__link">
-          Lost Cat
+          Lost Pet
         </Link>
         <Link to="/ReportFoundPet" className="footer__link">
-          Found Cat
+          Found Pet
         </Link>
         <Link to="/about" className="footer__link">
           About Us
