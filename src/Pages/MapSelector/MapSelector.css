@@ -20,10 +20,3 @@
   }
 }
 
-@media screen and (max-width: 400px) {
-  .landingimage__herobox {
-    grid-column: 1 / span 2;
-    grid-row: 2 / span 2;
-    transform: translateX(5%);
-  }
-}
