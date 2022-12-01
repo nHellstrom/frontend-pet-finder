@@ -18,7 +18,7 @@ import LoginButton from '../Login/LoginButton';
 import { useAuth0 } from "@auth0/auth0-react";
 import "./Navbar.css";
 
-const pages = ['Map', 'ReportLostCat', 'ReportFoundCat', 'About'];
+const pages = ['Map', 'ReportLostPet', 'ReportFoundPet', 'About'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 function Navbar() {

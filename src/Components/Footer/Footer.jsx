@@ -10,7 +10,8 @@ const Footer = () => {
         <sub>
           <ul className="footer__infotext">
             <li>(+46) 0712 345 678 </li>
-            <li>Contact Information</li>
+            <li>Skogskattgatan 12</li>
+            <li>Stockholm, Sweden</li>
           </ul>
         </sub>
       </div>
@@ -21,10 +22,10 @@ const Footer = () => {
         <Link to="/map" className="footer__link">
           Map
         </Link>
-        <Link to="/reportlostcat" className="footer__link">
+        <Link to="/ReportLostPet" className="footer__link">
           Lost Cat
         </Link>
-        <Link to="/reportfoundcat" className="footer__link">
+        <Link to="/ReportFoundPet" className="footer__link">
           Found Cat
         </Link>
         <Link to="/about" className="footer__link">

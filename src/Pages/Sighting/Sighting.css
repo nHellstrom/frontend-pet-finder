@@ -32,3 +32,9 @@
 .sightingpage__button:hover {
   background-color: #3e8c42;
 }
+
+@media screen and (max-width: 690px) {
+  .sightingpage__container {
+    flex-direction: column;
+  }
+}

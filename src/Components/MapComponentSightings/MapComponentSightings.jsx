@@ -63,13 +63,13 @@ function MapComponent(props) {
               <b>Description:</b> Blahh <br />
               <i>Image Link:</i> {x.pictureUrl}
               <img src={x.pictureUrl} width="100%"></img> */}
-              <b>Name:</b> {x.catName} <br />
+              {/* <b>Name:</b> {x.catName} <br /> */}
               <b>Description:</b> {x.eventInfo} <br />
               <b>Contact info:</b> {x.contactinformation} <br />
               <b>Latitude:</b> {x.location[0].toFixed(2)} <br />
               <b>Longitude:</b> {x.location[1].toFixed(2)} <br />
               <b>Image:</b>
-              <img src={x.pictureUrl} className="map__markerimage"></img>
+              <img src={x.pictureUrl} className="map__markerimage" alt="Lost animal photo"></img>
             </Popup>
           </Marker>
         ))}

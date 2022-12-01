@@ -58,9 +58,9 @@ function App() {
             <Route path="/map/mapfound" element={<MapSighting />} />
             <Route path="/foundanimals" element={<MapSightings />} />
             <Route element={<ProtectedRoute />}>
-              <Route path="/reportlostcat" element={<Wanting />} />
+              <Route path="/ReportLostPet" element={<Wanting />} />
             </Route>
-            <Route path="/reportfoundcat" element={<Sighting />} />
+            <Route path="/ReportFoundPet" element={<Sighting />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/profile" element={<Profile />} />
           </Routes>

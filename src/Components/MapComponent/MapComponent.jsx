@@ -65,7 +65,11 @@ function MapComponent(props) {
               <b>Latitude:</b> {x.location[0].toFixed(2)} <br />
               <b>Longitude:</b> {x.location[1].toFixed(2)} <br />
               <b>Image:</b>
-              <img src={x.pictureUrl} className="map__markerimage"></img>
+              <img
+                src={x.pictureUrl}
+                className="map__markerimage"
+                alt="Lost animal photo"
+              ></img>
             </Popup>
           </Marker>
         ))}
