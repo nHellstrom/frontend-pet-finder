@@ -62,9 +62,7 @@ function MapComponent(props) {
               <b>Name:</b> {x.catName} <br />
               <b>Description:</b> {x.eventInfo} <br />
               <b>Contact info:</b> {x.contactinformation} <br />
-              <b>Latitude:</b> {x.location[0].toFixed(2)} <br />
-              <b>Longitude:</b> {x.location[1].toFixed(2)} <br />
-              <b>Image:</b>
+              <br />
               <img
                 src={x.pictureUrl}
                 className="map__markerimage"
