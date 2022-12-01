@@ -56,8 +56,8 @@ function Sighting() {
       <div className="sightingpage__introtext">
         <h2>Report Found Pet</h2>
         <p>
-          Use this form to make a report about a found pet. Select the last known
-          location on the map.
+          Use this form to make a report about a found pet. Select the last
+          known location on the map.
         </p>
       </div>
       <div className="sightingpage__container">
@@ -74,7 +74,7 @@ function Sighting() {
           <TextField
             id="informerName"
             placeholder="Please enter your name"
-            label="Informer Name"
+            label="Your Name"
             value={informerName}
             onChange={(e) => setInformerName(e.target.value)}
           />
@@ -100,23 +100,13 @@ function Sighting() {
             onChange={(e) => setPosition(e.target.value)}
           />
           <TextField
-            label="Contact Info"
-            placeholder="Please enter the contact info"
-            value={user}
-            onChange={(e) => setuser(e.target.value)}
-          />
-          <TextField
             label="Sighting Information"
             placeholder="Please enter sighting information"
             minRows={3}
             value={eventInfo}
             onChange={(e) => setEventInfo(e.target.value)}
           />
-          <TextField
-            name="upload-photo"
-            type="file"
-            onChange={saveFile}
-          />
+          <TextField name="upload-photo" type="file" onChange={saveFile} />
           <Button
             variant="contained"
             className="sightingpage__button"

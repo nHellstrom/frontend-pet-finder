@@ -14,7 +14,8 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "./Wanting.css";
 import SendIcon from "@mui/icons-material/Send";
-import MapComponent from "../../Components/MapComponent/MapComponent";
+import MapComponent from "../../Components/MapComponentSightings/MapComponentSightings";
+import { useAuth0 } from "@auth0/auth0-react";
 
 function Wanting() {
   const [ownerName, setOwnerName] = useState("");
@@ -23,18 +24,19 @@ function Wanting() {
   const [position, setPosition] = useState("");
   const [eventInfo, setEventInfo] = useState("");
   const [file, setFile] = useState();
+  const { user, isAuthenticated, isLoading } = useAuth0();
 
   //const navigate = useNavigate();
- function wantingHandler() {
+  function wantingHandler() {
     const formData = new FormData();
     formData.append("OwnerName", ownerName);
     formData.append("Email", email);
-    formData.append("CatName", catName); 
-    formData.append("Position",position);
+    formData.append("CatName", catName);
+    formData.append("Position", position);
     formData.append("Description", eventInfo);
     formData.append("image", file);
-    console.log("❌",formData);
-     axios
+    console.log("❌", formData);
+    axios
       .post("https://petfinderapi.azurewebsites.net/api/Wanting", formData)
       .then((response) => {
         //navigate("/");
@@ -80,12 +82,13 @@ function Wanting() {
           <TextField
             label="Email"
             placeholder="Please enter your email"
-            value={email}
+            value={user.email}
+            disabled
             onChange={(e) => setEmail(e.target.value)}
           />
           <TextField
             id="catName"
-            placeholder="Please enter cat name"
+            placeholder="Please enter animal name"
             label="cat Name"
             value={catName}
             onChange={(e) => setCatName(e.target.value)}
@@ -98,17 +101,13 @@ function Wanting() {
             onChange={(e) => setPosition(e.target.value)}
           />
           <TextField
-            label="Event Information"
-            placeholder="Please enter event info"
+            label="Animal Description"
+            placeholder="Please enter animal description"
             minRows={3}
             value={eventInfo}
             onChange={(e) => setEventInfo(e.target.value)}
           />
-          <TextField
-            name="upload-photo"
-            type="file"
-            onChange={saveFile}
-          />
+          <TextField name="upload-photo" type="file" onChange={saveFile} />
           <Button
             variant="contained"
             className="wantingpage__button"

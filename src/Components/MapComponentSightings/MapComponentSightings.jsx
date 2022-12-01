@@ -9,10 +9,8 @@ import {
   useMapEvents,
 } from "react-leaflet";
 import axios from "axios";
-// import { iconPerson } from "./Icon";
 
 function MapComponent(props) {
-  // let [mapCoordinate] = props;
   const [coordinate, setCoordinate] = useState([]);
   const [mapMarkersSightings, setmapMarkersSightings] = useState([]);
   const [initialPosition, setInitialPosition] = useState([59.273, 18.0286]);
@@ -30,24 +28,10 @@ function MapComponent(props) {
     getWebData().catch((e) => console.error("An error was caught!", e));
   }, []);
 
-  // const BoundsGetter = () => {
-  //   const map = useMapEvents({
-  //     click: () => {
-  //       let mapClickLoc = map.getBounds();
-  //       console.log("🐶", mapClickLoc);
-  //     },
-  //     // locationfound: (location) => {
-  //     //   console.log("location found:", location);
-  //     // },
-  //   });
-  //   return null;
-  // };
-
   useEffect(() => {
     navigator.geolocation.getCurrentPosition((position) => {
       const { latitude, longitude } = position.coords;
       setInitialPosition([latitude, longitude]);
-      console.log("🏠", latitude, longitude);
     });
   }, []);
 
@@ -59,35 +43,9 @@ function MapComponent(props) {
           .join(", ");
         setSelectedPosition(cordSelected);
         props.mapCoordinate(cordSelected);
-        console.log(cordSelected);
       },
     });
   };
-
-  // const LeafIcon = L.Icon.extend({
-  //   options: {
-  //     shadowUrl: "leaf-shadow.png",
-  //     iconSize: [38, 95],
-  //     shadowSize: [50, 64],
-  //     iconAnchor: [22, 94],
-  //     shadowAnchor: [4, 62],
-  //     popupAnchor: [-3, -76],
-  //   },
-  // });
-
-  // const iconPerson = L.Icon.extend({
-  //   options: {
-  //     iconAnchor: null,
-  //     popupAnchor: null,
-  //     shadowUrl: null,
-  //     shadowSize: null,
-  //     shadowAnchor: null,
-  //     iconSize: new L.Point(60, 75),
-  //     className: "leaflet__marker--colorshift",
-  //   },
-  // });
-
-  // const iconShifted = divIcon;
 
   return (
     <>
@@ -100,11 +58,14 @@ function MapComponent(props) {
           <Marker key={x.id} position={x.location}>
             <Popup>
               <h3>Sighting</h3>
-              <b>Latitude:</b> {x.location[0]} <br />
-              <b>Longitude:</b> {x.location[1]} <br />
-              <b>Description:</b> Blahh <br />
-              <i>Image Link:</i> {x.pictureUrl}
-              <img src={x.pictureUrl} width="100%"></img>
+              <b>Description:</b> {x.eventInfo} <br />
+              <b>Contact info:</b> {x.contactinformation} <br />
+              <br />
+              <img
+                src={x.pictureUrl}
+                className="map__markerimage"
+                alt="Lost animal photo"
+              ></img>
             </Popup>
           </Marker>
         ))}

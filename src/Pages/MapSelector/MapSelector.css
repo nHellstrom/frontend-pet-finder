@@ -9,7 +9,7 @@
 }
 
 .mapselector__button {
-  transform: scale(3);
+  transform: scale(2);
 }
 
 @media screen and (max-width: 930px) {
@@ -20,7 +20,7 @@
   }
 }
 
-@media screen and (max-width: 400) {
+@media screen and (max-width: 400px) {
   .landingimage__herobox {
     grid-column: 1 / span 2;
     grid-row: 2 / span 2;

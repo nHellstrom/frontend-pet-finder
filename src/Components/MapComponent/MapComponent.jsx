@@ -9,10 +9,8 @@ import {
   useMapEvents,
 } from "react-leaflet";
 import axios from "axios";
-// import { iconPerson } from "./Icon";
 
 function MapComponent(props) {
-  // let [mapCoordinate] = props;
   const [coordinate, setCoordinate] = useState([]);
   const [mapMarkers, setMapMarkers] = useState([]);
   const [initialPosition, setInitialPosition] = useState([59.273, 18.0286]);
@@ -23,31 +21,17 @@ function MapComponent(props) {
       let apiMarkers = await axios.get(
         "https://petfinderapi.azurewebsites.net/api/Wanting"
       );
-      console.log("🫤", apiMarkers.data);
+      // console.log("🫤", apiMarkers.data);
       setMapMarkers(apiMarkers.data.wantings);
     };
 
     getWebData().catch((e) => console.error("An error was caught!", e));
   }, []);
 
-  // const BoundsGetter = () => {
-  //   const map = useMapEvents({
-  //     click: () => {
-  //       let mapClickLoc = map.getBounds();
-  //       console.log("🐶", mapClickLoc);
-  //     },
-  //     // locationfound: (location) => {
-  //     //   console.log("location found:", location);
-  //     // },
-  //   });
-  //   return null;
-  // };
-
   useEffect(() => {
     navigator.geolocation.getCurrentPosition((position) => {
       const { latitude, longitude } = position.coords;
       setInitialPosition([latitude, longitude]);
-      console.log("🏠", latitude, longitude);
     });
   }, []);
 
@@ -64,31 +48,6 @@ function MapComponent(props) {
     });
   };
 
-  // const LeafIcon = L.Icon.extend({
-  //   options: {
-  //     shadowUrl: "leaf-shadow.png",
-  //     iconSize: [38, 95],
-  //     shadowSize: [50, 64],
-  //     iconAnchor: [22, 94],
-  //     shadowAnchor: [4, 62],
-  //     popupAnchor: [-3, -76],
-  //   },
-  // });
-
-  // const iconPerson = L.Icon.extend({
-  //   options: {
-  //     iconAnchor: null,
-  //     popupAnchor: null,
-  //     shadowUrl: null,
-  //     shadowSize: null,
-  //     shadowAnchor: null,
-  //     iconSize: new L.Point(60, 75),
-  //     className: "leaflet__marker--colorshift",
-  //   },
-  // });
-
-  // const iconShifted = divIcon;
-
   return (
     <>
       <MapContainer key={123} center={initialPosition} zoom={11}>
@@ -100,11 +59,15 @@ function MapComponent(props) {
           <Marker key={x.id} position={x.location}>
             <Popup>
               <h3>Lost</h3>
-              <b>Latitude:</b> {x.location[0]} <br />
-              <b>Longitude:</b> {x.location[1]} <br />
-              <b>Description:</b> Blah <br />
-              <i>Image Link:</i> {x.pictureUrl}
-              <img src={x.pictureUrl} width="100%"></img>
+              <b>Name:</b> {x.catName} <br />
+              <b>Description:</b> {x.eventInfo} <br />
+              <b>Contact info:</b> {x.contactinformation} <br />
+              <br />
+              <img
+                src={x.pictureUrl}
+                className="map__markerimage"
+                alt="Lost animal photo"
+              ></img>
             </Popup>
           </Marker>
         ))}

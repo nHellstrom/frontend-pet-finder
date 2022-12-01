@@ -12,18 +12,19 @@ const Front = () => {
       style={{ backgroundImage: `url(${landingimage})` }}
     >
       <div className="landingimage__herobox">
-        <h1 className="landingimage__herotitle">Pet Finder</h1>
+        <h1 className="landingimage__herotitle">Fauni</h1>
         <div className="landingimage__herotext">
           <p>
-            A service for global lost and found pets Lorem ipsum dolor sit amet
-            consectetur adipisicing elit. Illo, ex.
+            <b>Fauni</b> is a simple but global service for communicating with
+            helpful strangers about lost and found pets
           </p>
           <p>
-            <b>Pet Finder</b>
-            <i> (name TBD)</i> is a global web service for helping people with
-            runaway pets to connect with people who might have seen it. People
-            are encouraged to use the <b>"Report Seemingly Lost Animal"</b>
-            <i>(TBD)</i> portal if you spot a roaming pet which seems lost.
+            Losing a pet can be very emotionally distressful, and the tools
+            <b>Fauni</b> fills a niche is a global web service for helping
+            people with runaway pets to connect with people who might have seen
+            it. People are encouraged to use the <b>"Report Lost Pet"</b>
+            service if you've lost an animal, and <b>"Report Found Pet" </b>
+            if you spot or catch a roaming pet which seems lost.
           </p>
         </div>
         <div className="landingimage__herotextbuttons">
@@ -34,18 +35,18 @@ const Front = () => {
               Map
             </Button>
           </Link>
-          <Link to="reportlostcat" relative="path">
+          <Link to="ReportLostPet" relative="path">
             <Button variant="contained">
               Report
               <br />
-              Lost Cat
+              Lost Pet
             </Button>
           </Link>
-          <Link to="reportfoundcat" relative="path">
+          <Link to="ReportFoundPet" relative="path">
             <Button variant="contained">
               Report
               <br />
-              Found Cat
+              Found Pet
             </Button>
           </Link>
         </div>

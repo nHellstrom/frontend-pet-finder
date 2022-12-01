@@ -10,3 +10,8 @@
 .leaflet__marker--colorshift {
   filter: hue-rotate(180deg);
 }
+
+.map__markerimage {
+  max-height: 150px;
+  max-width: 100%;
+}

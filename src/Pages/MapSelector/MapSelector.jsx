@@ -12,16 +12,16 @@ const MapSelector = () => {
     >
       <Link to="maplost" relative="path">
         <Button variant="contained" className="mapselector__button">
-          Report
+          Lost
           <br />
-          Lost Cat
+          Animals
         </Button>
       </Link>
       <Link to="mapfound" relative="path">
         <Button variant="contained" className="mapselector__button">
-          Report
+          Found/Sighted
           <br />
-          Found Cat
+          Animals
         </Button>
       </Link>
     </div>

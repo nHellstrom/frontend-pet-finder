@@ -10,7 +10,9 @@ const PrivateRoute = () => {
     if (isAuthenticated) {
         return <Wanting />;
     } else {
-        return <LoginButton />;
+        return (
+            <div className="AuthRouter__container">
+                <h2>Lost animals</h2><p>Please log in in order to see reports of sighted or found animals.</p><LoginButton /></div>);
     }
 };
 

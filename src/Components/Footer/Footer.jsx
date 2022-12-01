@@ -6,11 +6,12 @@ const Footer = () => {
   return (
     <footer className="footer">
       <div className="footer__half footer__lefthalf">
-        <h5>Pet Finder</h5>
+        <h5>Fauni</h5>
         <sub>
           <ul className="footer__infotext">
-            <li>Contact Information</li>
-            <li>Contact Information</li>
+            <li>(+46) 0712 345 678 </li>
+            <li>Skogskattgatan 12</li>
+            <li>Stockholm, Sweden</li>
           </ul>
         </sub>
       </div>
@@ -21,11 +22,11 @@ const Footer = () => {
         <Link to="/map" className="footer__link">
           Map
         </Link>
-        <Link to="/reportlostcat" className="footer__link">
-          Lost Cat
+        <Link to="/ReportLostPet" className="footer__link">
+          Lost Pet
         </Link>
-        <Link to="/reportfoundcat" className="footer__link">
-          Found Cat
+        <Link to="/ReportFoundPet" className="footer__link">
+          Found Pet
         </Link>
         <Link to="/about" className="footer__link">
           About Us

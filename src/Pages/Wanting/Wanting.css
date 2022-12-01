@@ -38,3 +38,9 @@
 .wantingpage__button:hover {
   background-color: #3e8c42;
 }
+
+@media screen and (max-width: 690px) {
+  .wantingpage__container {
+    flex-direction: column;
+  }
+}
