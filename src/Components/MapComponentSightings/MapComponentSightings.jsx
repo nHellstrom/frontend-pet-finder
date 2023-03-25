@@ -1,14 +1,10 @@
-import React, { useState, useEffect } from "react";
-import "./MapComponentSightings.css";
-import {
-  MapContainer,
-  TileLayer,
-  Marker,
-  Popup,
-  useMap,
-  useMapEvents,
-} from "react-leaflet";
 import axios from "axios";
+import React, { useEffect, useState } from "react";
+import {
+  MapContainer, Marker,
+  Popup, TileLayer, useMapEvents
+} from "react-leaflet";
+import "./MapComponentSightings.css";
 
 function MapComponent(props) {
   const [coordinate, setCoordinate] = useState([]);
@@ -19,7 +15,8 @@ function MapComponent(props) {
   useEffect(() => {
     let getWebData = async () => {
       const apiMarkersSightings = await axios.get(
-        "https://petfinderapi.azurewebsites.net/api/Sighting"
+        // "https://petfinderapi.azurewebsites.net/api/Sighting"
+        "https://localhost:7164/api/Sighting"
       );
       console.log("🫤🔦", apiMarkersSightings.data);
       setmapMarkersSightings(apiMarkersSightings.data.sightings);

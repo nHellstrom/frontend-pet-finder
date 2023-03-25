@@ -1,14 +1,10 @@
-import React, { useState, useEffect } from "react";
-import "./MapComponent.css";
-import {
-  MapContainer,
-  TileLayer,
-  Marker,
-  Popup,
-  useMap,
-  useMapEvents,
-} from "react-leaflet";
 import axios from "axios";
+import React, { useEffect, useState } from "react";
+import {
+  MapContainer, Marker,
+  Popup, TileLayer, useMapEvents
+} from "react-leaflet";
+import "./MapComponent.css";
 
 function MapComponent(props) {
   const [coordinate, setCoordinate] = useState([]);
@@ -19,7 +15,8 @@ function MapComponent(props) {
   useEffect(() => {
     const getWebData = async () => {
       let apiMarkers = await axios.get(
-        "https://petfinderapi.azurewebsites.net/api/Wanting"
+        // "https://petfinderapi.azurewebsites.net/api/Wanting"
+        "https://localhost:7164/api/Wanting"
       );
       // console.log("🫤", apiMarkers.data);
       setMapMarkers(apiMarkers.data.wantings);
